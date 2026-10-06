@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<title>Velocity Rush — Arcade Racer</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <canvas id="scene"></canvas>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <!-- Top-left: position + lap -->
+    <div id="top-left">
+      <div id="position">1<span class="ord">st</span></div>
+      <div id="lap">LAP 1/3</div>
+    </div>
+
+    <!-- Top-center: countdown / messages -->
+    <div id="center-msg"></div>
+
+    <!-- Top-right: minimap -->
+    <div id="minimap-wrap">
+      <canvas id="minimap" width="180" height="180"></canvas>
+    </div>
+
+    <!-- Bottom-left: item box -->
+    <div id="item-box">
+      <div id="item-slot">?</div>
+      <div id="item-label">ITEM</div>
+    </div>
+
+    <!-- Bottom-right: speedometer -->
+    <div id="speedo-wrap">
+      <canvas id="speedo" width="150" height="150"></canvas>
+      <div id="speed-num">0</div>
+    </div>
+
+    <!-- Boost meter -->
+    <div id="boost-bar"><div id="boost-fill"></div></div>
+  </div>
+
+  <!-- Start / Results overlay -->
+  <div id="overlay">
+    <div id="overlay-card">
+      <h1>VELOCITY RUSH</h1>
+      <p class="sub">A 3D arcade racer &mdash; 3 laps, 6 racers, power-ups &amp; drifts.</p>
+      <div id="controls">
+        <div><b>W / &uarr;</b> Accelerate</div>
+        <div><b>S / &darr;</b> Brake / Reverse</div>
+        <div><b>A D / &larr; &rarr;</b> Steer</div>
+        <div><b>Space</b> Drift</div>
+        <div><b>Enter</b> Use Item</div>
+        <div><b>R</b> Restart</div>
+      </div>
+      <button id="start-btn">START RACE</button>
+      <div id="results" class="hidden"></div>
+    </div>
+  </div>
+
+  <div id="loading">Loading&hellip;</div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -4,10 +4,12 @@ A 3D arcade racing game for the browser, inspired by Mario Kart. Built with
 Three.js and vanilla JavaScript — no build step, no external assets, runs fully
 offline.
 
+**Play online:** [https://oneabodftw.github.io/velocity-rush/](https://oneabodftw.github.io/velocity-rush/)
+
 ## Run it
 
 ```bash
-cd racer
+cd velocity-rush
 python3 -m http.server 8123
 # open http://localhost:8123
 ```
@@ -60,3 +62,28 @@ The game must be served over HTTP (module scripts don't load from `file://`).
 | `js/camera.js` | Chase camera with shake |
 | `js/hud.js` | DOM overlays + canvas minimap/speedometer |
 | `js/three.module.js` | Vendored Three.js (offline) |
+
+## Credits & Setup
+
+Built by **Claude** (Anthropic's AI coding assistant) for Abod, in a single
+session. All design, architecture, and implementation decisions were made
+autonomously; the game was developed and tested headlessly (Puppeteer +
+headless Chrome with SwiftShader) before being pushed.
+
+### Tech stack
+
+- **Rendering**: [Three.js](https://threejs.org/) r160 (vendored in
+  `js/three.module.js` so the game runs fully offline with no CDN).
+- **Language**: modern ES modules, vanilla JavaScript — no framework, no
+  build step, no bundler.
+- **Audio**: Web Audio API (synthesized engine hum, ambient noise, and SFX —
+  no audio files).
+- **HUD**: DOM overlays + 2D canvas (minimap, speedometer).
+- **Testing**: Puppeteer driving headless Chrome (SwiftShader WebGL) to run
+  full races and verify laps, overtaking, finish detection, and results.
+
+### Development environment
+
+- Linux x64, Node v24, Python 3, Google Chrome (headless).
+- The only external dependency fetched during development was the Three.js
+  module build; everything else is hand-written.
